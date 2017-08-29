@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">GeoQuiz</string>
     <string name="hello_world">Hello world!</string>
-       <string name="true_button">True</string>
+    <string name="true_button">True</string>
     <string name="false_button">False</string>
     <string name="correct_toast">Correct!</string>
     <string name="next_button">Next</string>
@@ -21,4 +21,9 @@ in the Americas.</string>
     <string name="question_asia">Lake Baikal is the world\’s oldest and deepest
 freshwater lake.</string>
     <string name="title_activity_quiz" />
+    <string name="warning_text">Are you sure want to do this? </string>
+    <string name="show_answer_button">Show Answer</string>
+    <string name="cheat_button">Chrat!</string>
+    <string name="judgement_toast">Cheating is wrong.</string>
+
 </resources>
