@@ -19,10 +19,12 @@ public class QuizActivity extends AppCompatActivity {
     private Button mTrueButton;
     private Button mFalseButton;
     private Button mCheatButton;
+    private int mCount = 2;
     private ImageButton mNextButton;
     private ImageButton mPrevButton;
     private boolean mIsCheater;
     private TextView mQuestionTextView;
+    private TextView mCountTextView;
     private static final String TAG = "QuizActivity";
     private static final String KEY_INDEX = "index";
     private static final int REQUEST_CODE_CHEAT = 0;
@@ -132,9 +134,13 @@ public class QuizActivity extends AppCompatActivity {
         mCheatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
-                Intent i = CheatActivity.newIntent(QuizActivity.this, answerIsTrue);
-                startActivityForResult(i, REQUEST_CODE_CHEAT);
+                if (mCount > 0) {
+                    boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
+                    Intent i = CheatActivity.newIntent(QuizActivity.this, answerIsTrue);
+                    startActivityForResult(i, REQUEST_CODE_CHEAT);
+                } else {
+                    mCheatButton.setEnabled(false);
+                }
 
             }
         });
@@ -153,6 +159,9 @@ public class QuizActivity extends AppCompatActivity {
                 return;
             }
             mIsCheater = CheatActivity.wasAnswerButton(data);
+            mCount--;
+            mCountTextView.setText(mCount+" tokens left ");
+
         }
     }
 

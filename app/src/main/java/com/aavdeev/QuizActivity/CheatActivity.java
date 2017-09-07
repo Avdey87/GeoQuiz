@@ -21,6 +21,7 @@ public class CheatActivity extends AppCompatActivity {
     public static final String EXTRA_ANSWER_SHOW ="com.aavdeev.QuizActivity.answer_show";
     private boolean mAnswerIsTrue;
     private TextView mAnswerTextView;
+    private TextView mSdkVersion;
     private Button mShowAnswer;
     private boolean answerShownResult;
 
@@ -67,7 +68,10 @@ public class CheatActivity extends AppCompatActivity {
                     mShowAnswer.setVisibility(View.INVISIBLE);
                 }
             }
-        });}
+        });
+        mSdkVersion = (TextView) findViewById(R.id.sdk_version);
+        mSdkVersion.setText(String.format("API level%d", Build.VERSION.SDK_INT));
+    }
 
     private void setAnnswerShowResult(boolean isAnswerShow) {
         Intent data = new Intent();
